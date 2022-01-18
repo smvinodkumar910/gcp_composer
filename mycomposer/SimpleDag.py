@@ -4,6 +4,7 @@ Initial DAT to test the environment.
 
 from airflow import models
 from airflow.operators import python
+from airflow.utils import dates
 import datetime
 
 
@@ -20,12 +21,12 @@ def printFiveTimes():
         i=i+1
 
 with models.DAG(
-    dag_id='My First composer test',
-    start_date=datetime.datetime(2021,1,1),
+    dag_id='learning_dags',
+    start_date=dates.days_ago(0),
     schedule_interval=datetime.timedelta(hours=1)) as dag :
 
-       pythonTenTimes = printTenTimes()
-       pythonFiveTimes = printFiveTimes()
-
-       pythonFiveTimes >> pythonTenTimes
+    pythonTenTimes = python.PythonOperator(python_callable=printTenTimes, task_id='test10')
+    pythonFiveTimes = python.PythonOperator( python_callable=printFiveTimes,  task_id='test5')
+    
+    pythonFiveTimes >> pythonTenTimes
 

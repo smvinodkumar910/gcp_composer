@@ -1,5 +1,22 @@
+To do:
+    Java :  Classic template
+            Flex template
+    Python: Classic template
+            Flex template
+    
+    Composer : Call using   DataflowTemplatedJobStartOperator,
+                            DataflowStartflextemplateOperator,
+                            DataflowCreateJavajoboperator,
+                            DataflowCreatePythonjoboperator,
+                            
 
 To Install Apache Airflow:
 ------------------------------
 pip install 'apache-airflow[postgres,google]==2.2.3' \
  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.3/constraints-3.7.txt"
+
+
+
+AirFlow configuration :
+
+ https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html
